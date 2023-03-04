@@ -29,14 +29,22 @@ let s:enable_transparent_bg = get(g:,'colorscheme_primary_enable_transparent_bg'
 
 if has('gui_running') || (has('termguicolors') && &termguicolors)  "Graphical Vim
   "Set color palette with RGB colors
-  let s:RED    = '#EA4335'
-  let s:GREEN  = '#34A853'
-  let s:YELLOW = '#FBBC04'
-  let s:BLUE   = '#4285F4'
+  " RED is for Conditionals like if/while/return
+  " let s:RED    = '#689d6a'
+  " let s:GREEN  = '#34A853'
+  " let s:RED    = '#9d0006'
+  " let s:AQUA   = '#35A77C'
+  let s:BLUE   = '#4285F4' " contrast 300+
+  let s:YELLOW = '#DFA000'
+  let s:RED    = '#CC241D'
+  let s:GREEN  = '#79740E'
+  " let s:YELLOW = '#b57614'
   let s:BLACK  = '#202124'
   let s:DGREY  = '#5F6368'
-  let s:LGREY  = '#E8EAED'
+  let s:LGREY  = '#c0c0c0'
   let s:WHITE  = '#FFFFFF'
+  let s:PURPLE = '#B16286'
+  let s:AQUA   = '#427B58'
 
   "Set gui mode and italics
   let s:M = 'gui'
@@ -95,20 +103,20 @@ endif
 
 " Colors for Syntax Highlighting.
 if (s:enable_transparent_bg == 1)
-  exe 'hi Normal       '.s:M.'bg=NONE         '.s:M.'fg='.s:BLUE .' '.s:M.'=none'
+  exe 'hi Normal       '.s:M.'bg=NONE         '.s:M.'fg='.s:BLACK .' '.s:M.'=none'
   exe 'hi NonText      '.s:M.'bg=NONE         '.s:M.'fg='.s:GREY1.' '.s:M.'=bold'
 else
-  exe 'hi Normal       '.s:M.'bg='.s:BG    .' '.s:M.'fg='.s:BLUE .' '.s:M.'=none'
+  exe 'hi Normal       '.s:M.'bg='.s:BG    .' '.s:M.'fg='.s:BLACK .' '.s:M.'=none'
   exe 'hi NonText      '.s:M.'bg='.s:BG    .' '.s:M.'fg='.s:GREY1.' '.s:M.'=bold'
 endif
 
-exe 'hi String         '.s:M.'fg='.s:RED   .' '.s:M.'='.s:I
+exe 'hi String         '.s:M.'fg='.s:GREEN   .' '.s:M.'='.s:I
 exe 'hi Character      '.s:M.'fg='.s:RED   .' '.s:M.'='.s:I
 exe 'hi Conditional    '.s:M.'fg='.s:RED   .' '.s:M.'=bold'
 exe 'hi Label          '.s:M.'fg='.s:RED   .' '.s:M.'=bold'
 exe 'hi Repeat         '.s:M.'fg='.s:RED   .' '.s:M.'=bold'
 exe 'hi Statement      '.s:M.'fg='.s:RED   .' '.s:M.'=bold'
-exe 'hi Keyword        '.s:M.'fg='.s:RED   .' '.s:M.'=bold'
+exe 'hi Keyword        '.s:M.'fg='.s:PURPLE   .' '.s:M.'=bold'
 exe 'hi Exception      '.s:M.'fg='.s:RED   .' '.s:M.'=bold'
 
 exe 'hi Identifier     '.s:M.'fg='.s:BLUE  .' '.s:M.'=bold'
@@ -117,9 +125,9 @@ exe 'hi Function       '.s:M.'fg='.s:BLUE  .' '.s:M.'=bold'
 exe 'hi Comment        '.s:M.'fg='.s:GREEN .' '.s:M.'=none'
 exe 'hi Typedef        '.s:M.'fg='.s:GREEN .' '.s:M.'='.s:I
 exe 'hi PreProc        '.s:M.'fg='.s:GREEN .' '.s:M.'=bold'
-exe 'hi Include        '.s:M.'fg='.s:GREEN .' '.s:M.'=bold'
+exe 'hi Include        '.s:M.'fg='.s:PURPLE .' '.s:M.'=bold'
 exe 'hi Define         '.s:M.'fg='.s:GREEN .' '.s:M.'=bold'
-exe 'hi Macro          '.s:M.'fg='.s:GREEN .' '.s:M.'=bold'
+exe 'hi Macro          '.s:M.'fg='.s:AQUA .' '.s:M.'=bold'
 exe 'hi Precondit      '.s:M.'fg='.s:GREEN .' '.s:M.'=bold'
 exe 'hi SpecialComment '.s:M.'fg='.s:GREEN .' '.s:M.'=bold'
 
@@ -147,9 +155,9 @@ exe 'hi Structure      '.s:M.'fg='.s:YELLOW.' '.s:M.'=bold'
 exe 'hi Todo           '.s:M.'bg='.s:YELLOW.' '.s:M.'fg='.s:BG    .' '.s:M.'=none'
 exe 'hi WildMenu       '.s:M.'bg='.s:YELLOW.' '.s:M.'fg='.s:BG    .' '.s:M.'=none'
 
-exe 'hi DiffAdd        '.s:M.'bg='.s:BLUE  .' '.s:M.'fg='.s:GREY0 .' '.s:M.'=none'
-exe 'hi DiffChange     '.s:M.'bg='.s:GREEN .' '.s:M.'fg='.s:GREY0 .' '.s:M.'=none'
-exe 'hi DiffDelete     '.s:M.'bg='.s:RED   .' '.s:M.'fg='.s:GREY0 .' '.s:M.'=none'
+exe 'hi DiffAdd        '.s:M.'bg='.'NONE'  .' '.s:M.'fg='.s:AQUA .' '.s:M.'=none'
+exe 'hi DiffChange     '.s:M.'bg='.'NONE'  .' '.s:M.'fg='.s:PURPLE .' '.s:M.'=none'
+exe 'hi DiffDelete     '.s:M.'bg='.'NONE'  .' '.s:M.'fg='.s:RED .' '.s:M.'=none'
 exe 'hi DiffText       '.s:M.'bg='.s:GREY1 .' '.s:M.'fg='.'NONE'  .' '.s:M.'=none'
 
 
@@ -158,7 +166,7 @@ exe 'hi Cursor         '.s:M.'bg='.s:GREY1 .' '.s:M.'fg='.s:BG    .' '.s:M.'=bol
 exe 'hi Search         '.s:M.'bg='.s:YELLOW.' '.s:M.'fg='.s:BG    .' '.s:M.'=none'
 exe 'hi IncSearch      '.s:M.'bg='.s:YELLOW.' '.s:M.'fg='.s:BG    .' '.s:M.'=none'
 exe 'hi ColorColumn    '.s:M.'bg='.s:GREY2 .' '.s:M.'fg='.'NONE'  .' '.s:M.'=none'
-exe 'hi SignColumn     '.s:M.'bg='.s:GREY2 .' '.s:M.'fg='.s:YELLOW.' '.s:M.'=none'
+exe 'hi SignColumn     '.s:M.'bg='.'NONE' .' '.s:M.'fg='.s:YELLOW.' '.s:M.'=none'
 
 exe 'hi WarningMsg     '.s:M.'bg='.s:BG    .' '.s:M.'fg='.s:RED   .' '.s:M.'=bold'
 exe 'hi ErrorMsg       '.s:M.'bg='.s:BG    .' '.s:M.'fg='.s:RED   .' '.s:M.'=bold'
@@ -177,7 +185,7 @@ exe 'hi PmenuThumb     '.s:M.'bg='.s:GREY0 .' '.s:M.'fg='.s:BG    .' '.s:M.'=non
 if (has('gui_running') || &t_Co == 256)
   exe 'hi Visual       '.s:M.'bg='.s:GREY2 .' '.s:M.'fg='.'NONE'  .' '.s:M.'=none'
   exe 'hi Pmenu        '.s:M.'bg='.s:GREY2 .' '.s:M.'fg='.s:GREY0 .' '.s:M.'=none'
-  exe 'hi Linenr       '.s:M.'bg='.s:GREY2 .' '.s:M.'fg='.s:GREY1 .' '.s:M.'=none'
+  exe 'hi Linenr       '.s:M.'bg='.'NONE' .' '.s:M.'fg='.s:GREY1 .' '.s:M.'=none'
   exe 'hi VertSplit    '.s:M.'bg='.s:GREY1 .' '.s:M.'fg='.s:GREY2 .' '.s:M.'=none'
   exe 'hi StatusLine   '.s:M.'bg='.s:GREY1 .' '.s:M.'fg='.s:GREY2 .' '.s:M.'=bold'
   exe 'hi StatusLineNC '.s:M.'bg='.s:GREY2 .' '.s:M.'fg='.s:GREY1 .' '.s:M.'=none'
@@ -202,3 +210,4 @@ else
   exe 'hi Folded       '.s:M.'bg='.s:GREYX .' '.s:M.'fg='.s:GREYY .' '.s:M.'=none'
   exe 'hi FoldColumn   '.s:M.'bg='.s:GREYX .' '.s:M.'fg='.s:GREYY .' '.s:M.'=none'
 endif
+
